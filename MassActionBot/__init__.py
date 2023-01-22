@@ -35,10 +35,10 @@ app = Client(
     plugins=dict(root="MassActionBot/plugins"))
 
 #bot info
-BOT_ID = 0
-BOT_NAME = ""
-BOT_USERNAME = ""
-MENTION = ""
+#BOT_ID = 0
+#BOT_NAME = ""
+#BOT_USERNAME = ""
+#MENTION = ""
 
 
 
