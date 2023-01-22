@@ -1,10 +1,11 @@
+import os
 import asyncio
 from config import Config
 from pyrogram import Client,idle
 from rich.console import Console
 from rich.table import Table
 from motor.motor_asyncio import AsyncIOMotorClient
-#from MassActionBot.utils.data import START_TEXT
+from MassActionBot.utils.data import LOG_MSG as START_TEXT
 
 #getting variables
 API_ID = Config.API_ID
@@ -43,6 +44,10 @@ MENTION = ""
 async def MassActionBot():
     global BOT_ID,BOT_NAME
     global BOT_USERNAME,MENTION
+    os.system("clear")
+    header = Table(show_header=True, header_style="bold yellow")
+    header.add_column(START_TEXT)
+    LOG.print(header)
     LOG.print("[bold yellow]ɢᴇᴛᴛɪɴɢ ɪɴғᴏ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ.....")
     await app.start()
     bot = await app.get_me()
