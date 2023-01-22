@@ -48,7 +48,7 @@ async def MassActionBot():
     BOT_ID = bot.id
     BOT_USERNAME = bot.username
     MENTION = bot.mention
-    if app.last_name:
+    if bot.last_name:
         BOT_NAME = bot.first_name + " " + bot.last_name
     else:
         BOT_NAME = bot.first_name
