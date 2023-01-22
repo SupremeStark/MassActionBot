@@ -5,4 +5,5 @@ class Config:
     BAN_PROTECTED = [5459540851]
     OWNER_ID = 5505555398
     CLONE = True
+    START_PIC = "idk"
     
