@@ -1,2 +1,3 @@
 pyrogram
-Tgcrypto
+TgCrypto
+rich
