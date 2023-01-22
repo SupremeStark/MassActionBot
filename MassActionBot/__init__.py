@@ -4,7 +4,7 @@ from pyrogram import Client,idle
 from rich.console import Console
 from rich.table import Table
 from motor.motor_asyncio import AsyncIOMotorClient
-from MassActionBot.utils.data import START_TEXT
+#from MassActionBot.utils.data import START_TEXT
 
 #getting variables
 API_ID = Config.API_ID
