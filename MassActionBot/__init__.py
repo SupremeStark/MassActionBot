@@ -29,7 +29,8 @@ app = Client(
     "SupremeStark",
     api_id = API_ID,
     api_hash = API_HASH,
-    bot_token = TOKEN)
+    bot_token = TOKEN,
+    plugins=dict(root="MassActionBot/plugins"))
 
 #bot info
 BOT_ID = 0
