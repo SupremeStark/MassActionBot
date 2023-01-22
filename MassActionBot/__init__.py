@@ -20,8 +20,8 @@ LOG = Console()
 
 
 #database
-mongo = AsyncIOMotorClient
-db = mongo.AMSTARK
+#mongo = AsyncIOMotorClient
+#db = mongo.AMSTARK
 
 
 #client
