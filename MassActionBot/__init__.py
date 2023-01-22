@@ -42,33 +42,33 @@ app = Client(
 
 
 
+async def MassActionBot():
+    os.system("clear")
+    header = Table(show_header=True, header_style="bold yellow")
+    header.add_column(START_TEXT)
+    LOG.print(header)
+    LOG.print("[bold yellow]ɢᴇᴛᴛɪɴɢ ɪɴғᴏ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ.....")
+    await app.start()
+    bot = await app.get_me()
+    BOT_ID = bot.id
+    BOT_USERNAME = bot.username
+    MENTION = bot.mention
+    if bot.last_name:
+        BOT_NAME = bot.first_name + " " + bot.last_name
+    else:
+       BOT_NAME = bot.first_name
+    away asyncio.sleep(2)
+    LOG.print("[bold yellow]ɢᴏᴛ ᴀʟʟ ᴛʜᴇ ɪɴғᴏ......")
+    await asyncio.sleep(1)
+    LOG.print(f"[bold cyan]ʙᴏᴛ ɪᴅ : {BOT_ID}\nʙᴏᴛ ɴᴀᴍᴇ : {BOT_NAME}\nʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ : {BOT_USERNAME}")
+    await asyncio.sleep(0.5)
+    LOG.print("[bold yellow]ɴᴏᴡ ᴀᴍ ʀᴇᴀᴅʏ ᴛᴏ ғɪɢʜᴛ ʙᴏss..")
+    await idle()    
 
-os.system("clear")
-header = Table(show_header=True, header_style="bold yellow")
-header.add_column(START_TEXT)
-LOG.print(header)
-LOG.print("[bold yellow]ɢᴇᴛᴛɪɴɢ ɪɴғᴏ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ.....")
-app.start()
-bot =  app.get_me()
-BOT_ID = bot.id
-BOT_USERNAME = bot.username
-MENTION = bot.mention
-if bot.last_name:
-    BOT_NAME = bot.first_name + " " + bot.last_name
-else:
-    BOT_NAME = bot.first_name
-asyncio.sleep(2)
-LOG.print("[bold yellow]ɢᴏᴛ ᴀʟʟ ᴛʜᴇ ɪɴғᴏ......")
-asyncio.sleep(1)
-LOG.print(f"[bold cyan]ʙᴏᴛ ɪᴅ : {BOT_ID}\nʙᴏᴛ ɴᴀᴍᴇ : {BOT_NAME}\nʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ : {BOT_USERNAME}")
-asyncio.sleep(0.5)
-LOG.print("[bold yellow]ɴᴏᴡ ᴀᴍ ʀᴇᴀᴅʏ ᴛᴏ ғɪɢʜᴛ ʙᴏss..")
-idle()    
 
 
-
-#loop = asyncio.get_event_loop()
-#loop.run_until_complete(MassActionBot())    
+loop = asyncio.get_event_loop()
+loop.run_until_complete(MassActionBot())    
 
 
 
