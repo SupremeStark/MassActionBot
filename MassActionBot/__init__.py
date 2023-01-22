@@ -15,6 +15,7 @@ SUDOES = Config.BAN_PROTECTED
 OWNER_ID = Config.OWNER_ID
 CLONE = Config.CLONE
 START_PIC = Config.START_PIC
+SUDOES.append(OWNER_ID)
 
 #rich
 LOG = Console()
