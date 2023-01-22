@@ -1,4 +1,4 @@
-from TeleBot import app
+from MassActionBot import app
 from pyrogram import filters 
 
 @app.on_message(filters.command("start"))
