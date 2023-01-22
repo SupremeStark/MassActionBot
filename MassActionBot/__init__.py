@@ -65,13 +65,13 @@ async def MassActionBot():
     LOG.print(f"[bold cyan]ʙᴏᴛ ɪᴅ : {BOT_ID}\nʙᴏᴛ ɴᴀᴍᴇ : {BOT_NAME}\nʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ : {BOT_USERNAME}")
     await asyncio.sleep(0.5)
     LOG.print("[bold yellow]ɴᴏᴡ ᴀᴍ ʀᴇᴀᴅʏ ᴛᴏ ғɪɢʜᴛ ʙᴏss..")
-    await idle()
+    
 
 
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(MassActionBot())    
-
+idle()
 
 
     
