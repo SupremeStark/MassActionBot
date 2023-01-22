@@ -5,9 +5,9 @@ from MassActionBot import BOT_ID,SUDOES
 
 
 
-async def handle_status(mystic):
+def handle_status(mystic):
     @wraps(mystic)
-    async def wrapper (app : Client, message: Message):
+    async def wrapper(app : Client, message: Message):
         if message.chat.type == enums.ChatType.PRIVATE:
             await message.reply_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs ɪɴ ɢʀᴏᴜᴘs/ᴄʜᴀɴɴᴇʟs ɴᴏᴛ ɪɴ ᴘʀɪᴠᴀᴛᴇ.ʙᴀᴋᴀᴀ.....")
         chat_id = message.chat.id
