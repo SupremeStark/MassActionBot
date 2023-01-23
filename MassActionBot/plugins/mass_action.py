@@ -76,11 +76,11 @@ async def _banUnban(_, message):
         fools = []        
         async for member in _.get_chat_members(chat_id) :          
             user = member.user        
-                if user.status == enums.UserStatus.LAST_MONTH:
-                    if user.id in SUDOES :
-                        pass
-                    else:                            
-                        fools.append(member.user.id)  
+            if user.status == enums.UserStatus.LAST_MONTH:
+                if user.id in SUDOES :
+                    pass
+                else:                            
+                    fools.append(member.user.id)  
         if not fools:
            await text.edit("ᴛʜᴇʀᴇ ᴀʀᴇɴ'ᴛ ᴀɴʏ ғᴏᴏʟs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ")
         else:
