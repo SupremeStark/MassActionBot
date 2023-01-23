@@ -27,12 +27,12 @@ async def _banUnban(_, message):
     if message.command[0] == "unbanall":
         banned_users = []
         x = 0
-        async for m in pgram.get_chat_members(chat_id,filter=enums.ChatMembersFilter.BANNED):
+        async for m in _.get_chat_members(chat_id,filter=enums.ChatMembersFilter.BANNED):
             banned_users.append(m.user.id)
             if chat_id not in SPAM_CHATS:
                 break       
             try:               
-                await pgram.unban_chat_member(chat_id,banned_users[x])
+                await _.unban_chat_member(chat_id,banned_users[x])
                 await _.send_message(chat_id,f"ᴜɴʙᴀɴɪɴɢ ᴀʟʟ ᴍᴄ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ {m.user.mention}")
                 x += 1                                                                
             except FloodWait as e:
