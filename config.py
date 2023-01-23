@@ -6,4 +6,5 @@ class Config:
     OWNER_ID = 5505555398
     CLONE = True
     START_PIC = "idk"
+    MONGO_DB_URL = "mongodb+srv://GOJO:liyaxlambert*143@cluster0.fhbjzax.mongodb.net/?retryWrites=true&w=majority"
     
