@@ -1,4 +1,5 @@
 from MassActionBot import app ,API_ID,API_HASH
+from pyrogram import filters
 
 @app.on_message(filters.private & filters.command("clone"))
 async def clone(bot, msg):
