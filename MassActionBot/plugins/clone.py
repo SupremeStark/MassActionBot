@@ -1,6 +1,6 @@
 from MassActionBot import app ,API_ID,API_HASH
 
-@all.on_message(filters.private & filters.command("clone"))
+@app.on_message(filters.private & filters.command("clone"))
 async def clone(bot, msg):
     chat = msg.chat
     text = await msg.reply("Usage:\n\n /clone token")
