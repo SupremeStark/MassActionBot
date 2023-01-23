@@ -1,10 +1,11 @@
 import asyncio
-from MassActionBot import app,SUDOES
+import time 
+from MassActionBot import app,SUDOES,get_readable_time
 from pyrogram import filters,enums
 from MassActionBot.utils.chat_status import handle_status
 from MassActionBot.plugins.cancel_process import SPAM_CHATS
 from pyrogram.errors import FloodWait 
-
+from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM 
 
 
 @app.on_message(filters.command(["banall","unbanall"]))
@@ -12,11 +13,12 @@ from pyrogram.errors import FloodWait
 async def _banUnban(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
+    start = time.time()
+    buttons = IKM([[IKB("❌ ᴄᴀɴᴄᴇʟ", callback_data="cancel_btn")]]))
     SPAM_CHATS.append(chat_id)
     if message.command[0] == "banall":
-
+        await message.reply("sᴛᴀʀᴛᴇᴅ ʙᴀɴɴɪɴɢ ᴛʜᴇ ᴍᴇᴍʙᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴛᴀᴘ ᴏɴ ᴄᴀɴᴄᴇʟ ʙᴜᴛᴛᴏɴ ᴏʀ /ᴄᴀɴᴄᴇʟ ᴛᴏ sᴛᴏᴘ ᴛʜᴇ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss.", reply_markup=buttons)
         async for members in _.get_chat_members(chat_id):
-            print(SUDOES)
             if chat_id not in SPAM_CHATS:
                 break  
             try:          
@@ -29,6 +31,9 @@ async def _banUnban(_, message):
                 await asyncio.sleep(i.value)
             except Exception as er:
                 pass 
+        end = get_readable_time((time.time() - start))      
+        await message.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs. ɪɴ `{end}`")        
+
 
     if message.command[0] == "unbanall":
         banned_users = []
