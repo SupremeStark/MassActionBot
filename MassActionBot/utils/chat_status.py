@@ -12,6 +12,7 @@ def handle_status(mystic):
             await message.reply_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs ɪɴ ɢʀᴏᴜᴘs/ᴄʜᴀɴɴᴇʟs ɴᴏᴛ ɪɴ ᴘʀɪᴠᴀᴛᴇ.ʙᴀᴋᴀᴀ.....")
         chat_id = message.chat.id
         user_id = message.from_user.id
+        BOT_ID = (await app.get_me()).id
         supreme_users = []
         async for m in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             supreme_users.append(m.user.id)
