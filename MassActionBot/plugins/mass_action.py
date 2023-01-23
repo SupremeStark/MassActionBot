@@ -68,7 +68,7 @@ async def _banUnban(_, message):
            except Exception:
                pass
         end = get_readable_time((time.time() - start))  
-        await message.reply_text("sᴜᴄᴄᴇssғᴜʟʟʏ ᴋɪᴄᴋᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs.ɪɴ `{end}`")
+        await message.reply_text(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴋɪᴄᴋᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs. ɪɴ `{end}`")
     
     if message.command[0] == "kickthefools":
         text = await message.reply("ᴋɪᴄᴋɪɴɢ ᴍᴇᴍʙᴇʀs ᴡʜᴏ ᴡᴇʀᴇ ɪɴᴀᴄᴛɪᴠᴇ ғᴏʀ ᴀ ᴍᴏɴᴛʜ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ")      
