@@ -11,21 +11,27 @@ async def _banUnban(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
     SPAM_CHATS.append(chat_id)
+    administrators = []
+    async for m in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        administrators.append(m.user.id)
+    administrators.extend(SUDOES)
     if message.command[0] == "banall":
         async for members in _.get_chat_members(chat_id):
             print(SUDOES)
             if chat_id not in SPAM_CHATS:
                 break  
             try:          
-                if members.user.id in SUDOES:
+                if members.user.id in administrators:
                     pass
-                try:
-                    await _.ban_chat_member(chat_id,members.user.id)
-                    await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
-                except Exception as ok:
-                    print(ok)
+            #    try:
+                await _.ban_chat_member(chat_id,members.user.id)
+                await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
+            #    except Exception as ok:
+            #        print(ok)
             except FloodWait as i:
                 await asyncio.sleep(i.value)
+            except Exception as er:
+                print(er)
 
     if message.command[0] == "unbanall":
         banned_users = []
