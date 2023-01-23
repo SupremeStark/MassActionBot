@@ -1,7 +1,7 @@
 import asyncio
 import importlib 
 from pyrogram import idle 
-from MassActionBot.plugins import ALL_MODULE 
+from MassActionBot.plugins import ALL_MODULES 
 
 
 
