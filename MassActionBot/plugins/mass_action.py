@@ -23,11 +23,9 @@ async def _banUnban(_, message):
             try:          
                 if members.user.id in administrators:
                     pass
-            #    try:
-                await _.ban_chat_member(chat_id,members.user.id)
-                await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
-            #    except Exception as ok:
-            #        print(ok)
+                else:
+                    await _.ban_chat_member(chat_id,members.user.id)
+                    await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
             except FloodWait as i:
                 await asyncio.sleep(i.value)
             except Exception as er:
