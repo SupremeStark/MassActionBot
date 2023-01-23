@@ -22,7 +22,7 @@ async def _banUnban(_, message):
                 await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
             except FloodWait as ok:
                 await asyncio.sleep(ok.value) 
-   if message.command[0] == "unbanall":
+    if message.command[0] == "unbanall":
         banned_users = []
         x = 0
         async for m in pgram.get_chat_members(chat_id,filter=enums.ChatMembersFilter.BANNED):
