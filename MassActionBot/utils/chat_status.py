@@ -20,7 +20,7 @@ def handle_status(mystic):
         user = await app.get_chat_member(chat_id,user_id)       
         if BOT_ID not in supreme_users:
             return await message.reply_text("ᴡᴛғ ʙʀᴜʜ ɪ'ᴍ ɴᴏᴛ ᴇᴠᴇɴ ᴀᴅᴍɪɴ ʜᴏᴡ ᴄᴀɴ ɪ ᴘᴇʀғᴏʀᴍ ᴛʜᴇsᴇ ᴀᴄᴛɪᴏɴs 😒.")
-        if user_id not in (supreme_users or SUDOES):
+        if user_id not in (supreme_users and SUDOES):
             return await message.reply_text("ғᴜᴄᴋ ʏᴏᴜ 🖕.")
         if not BOT.privileges.can_restrict_members:
             return await message.reply_text("**ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ʏᴏᴜ ғᴏᴏʟ. ɢɪᴠᴇ ᴍᴇ ᴛʜᴇ ʀᴇsᴛʀɪᴄᴛɪᴏɴ ʀɪɢʜᴛ.**")
