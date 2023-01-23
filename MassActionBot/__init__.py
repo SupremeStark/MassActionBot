@@ -16,6 +16,7 @@ SUDOES = Config.BAN_PROTECTED
 OWNER_ID = Config.OWNER_ID
 CLONE = Config.CLONE
 START_PIC = Config.START_PIC
+MONGO_DB = Config.MONGO_DB_URL
 SUDOES.append(OWNER_ID)
 
 #rich
@@ -47,8 +48,8 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 #database
-#mongo = AsyncIOMotorClient
-#db = mongo.AMSTARK
+mongo = AsyncIOMotorClient(MONGO_DB)
+db = mongo.AMSTARK
 
 
 #client
