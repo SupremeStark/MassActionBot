@@ -108,7 +108,10 @@ async def _banUnban(_, message):
             can_send_messages=True,
             can_send_media_messages=True))
         await message.reply_text("sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴᴍᴜᴛᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs.")
-
+    try :
+        SPAM_CHATS.remove(chat_id)
+    except Exception:
+        pass
    
  
 
