@@ -10,7 +10,7 @@ async def clone(bot, msg):
     try:
         await text.edit("Booting Your Client")
                    # change this Directry according to ur repo
-        client = Client(":memory:", API_ID, API_HASH, bot_token=phone, plugins={"root": "MassActionBot.plugins"})
+        client = Client(":memory:", API_ID, API_HASH, bot_token=phone, plugins=dict(root="MassActionBot/plugins"))
         await client.start()
         user = await client.get_me()
         await msg.reply(f"Your Client Has Been Successfully Started As @{user.username}! ✅ \n\n Now Add Your Bot And Assistant  To Your Chat!\n\nThanks for Cloning.")
