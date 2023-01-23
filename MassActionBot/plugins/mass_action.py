@@ -15,7 +15,7 @@ async def _banUnban(_, message):
         async for members in _.get_chat_members(chat_id):
             if chat_id not in SPAM_CHATS:
                 break            
-            if user_id in SUDOES:
+            if members.user.id in SUDOES:
                 pass
             try:
                 await _.ban_chat_member(chat_id,members.user.id)
