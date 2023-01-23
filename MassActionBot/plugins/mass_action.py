@@ -17,7 +17,7 @@ async def _banUnban(_, message):
     buttons = IKM([[IKB("❌ ᴄᴀɴᴄᴇʟ", callback_data="cancel_btn")]])
     SPAM_CHATS.append(chat_id)
     if message.command[0] == "banall":
-        await message.reply("sᴛᴀʀᴛᴇᴅ ʙᴀɴɴɪɴɢ ᴛʜᴇ ᴍᴇᴍʙᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴛᴀᴘ ᴏɴ ᴄᴀɴᴄᴇʟ ʙᴜᴛᴛᴏɴ ᴏʀ /ᴄᴀɴᴄᴇʟ ᴛᴏ sᴛᴏᴘ ᴛʜᴇ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss.", reply_markup=buttons)
+        await message.reply_text("sᴛᴀʀᴛᴇᴅ ʙᴀɴɴɪɴɢ ᴛʜᴇ ᴍᴇᴍʙᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴛᴀᴘ ᴏɴ ᴄᴀɴᴄᴇʟ ʙᴜᴛᴛᴏɴ ᴏʀ /cancel ᴛᴏ sᴛᴏᴘ ᴛʜᴇ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss.", reply_markup=buttons)
         async for members in _.get_chat_members(chat_id):
             if chat_id not in SPAM_CHATS:
                 break  
@@ -34,8 +34,8 @@ async def _banUnban(_, message):
         end = get_readable_time((time.time() - start))      
         await message.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs. ɪɴ `{end}`")        
 
-
     if message.command[0] == "unbanall":
+        await message.reply_text("sᴛᴀʀᴛᴇᴅ ᴜɴʙᴀɴɴɪɴɢ ᴀʟʟ ᴍᴇᴍʙᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴛᴀᴘ ᴏɴ ᴄᴀɴᴄᴇʟ ʙᴜᴛᴛᴏɴ ᴏʀ /cancel ᴛᴏ sᴛᴏᴘ ᴛʜᴇ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss", reply_markup=buttons)
         banned_users = []
         x = 0
         async for m in _.get_chat_members(chat_id,filter=enums.ChatMembersFilter.BANNED):
@@ -48,5 +48,6 @@ async def _banUnban(_, message):
                 x += 1                                                                
             except FloodWait as e:
                 await asyncio.sleep(e.value)           
-     #   end = get_readable_time((time.time() - start))      
-                
+        end = get_readable_time((time.time() - start))      
+        await message.reply_text(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴʙᴀɴɴᴇᴅ ᴀʟʟ ᴍᴇᴍʙᴇʀs. ɪɴ `{end}`")
+        
