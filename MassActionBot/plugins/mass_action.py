@@ -14,7 +14,7 @@ async def _banUnban(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
     start = time.time()
-    buttons = IKM([[IKB("❌ ᴄᴀɴᴄᴇʟ", callback_data="cancel_btn")]]))
+    buttons = IKM([[IKB("❌ ᴄᴀɴᴄᴇʟ", callback_data="cancel_btn")]])
     SPAM_CHATS.append(chat_id)
     if message.command[0] == "banall":
         await message.reply("sᴛᴀʀᴛᴇᴅ ʙᴀɴɴɪɴɢ ᴛʜᴇ ᴍᴇᴍʙᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴛᴀᴘ ᴏɴ ᴄᴀɴᴄᴇʟ ʙᴜᴛᴛᴏɴ ᴏʀ /ᴄᴀɴᴄᴇʟ ᴛᴏ sᴛᴏᴘ ᴛʜᴇ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss.", reply_markup=buttons)
