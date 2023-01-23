@@ -14,15 +14,14 @@ async def _banUnban(_, message):
     if message.command[0] == "banall":
         async for members in _.get_chat_members(chat_id):
             if chat_id not in SPAM_CHATS:
-                break
+                break            
+            if user_id in SUDOES:
+                pass
             try:
-                if user_id in SUDOES:
-                    pass
-                try:
-                    await _.ban_chat_member(chat_id,members.user.id)
-                    await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
-                except FloodWait as ok:
-                    await asyncio.sleep(ok.value) 
+                await _.ban_chat_member(chat_id,members.user.id)
+                await _.send_message(chat_id,f"ʙᴀɴɴᴇᴅ {members.user.mention} ɪɴ `{message.chat.title}`.") 
+            except FloodWait as ok:
+                await asyncio.sleep(ok.value) 
    if message.command[0] == "unbanall":
         banned_users = []
         x = 0
