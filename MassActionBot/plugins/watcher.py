@@ -7,7 +7,7 @@ from MassActionBot.utils.database import is_served_chat, chatsdb
 async def addinDb(_, message):
     BOT_ID = (await _.get_me()).id
     chat_id = message.chat.id
-    check = await chatdb.find_one({"chat_id" : chat_id})
+    check = await chatsdb.find_one({"chat_id" : chat_id})
     if not check:
         await chatsdb.insert_one({"chat_id" : chat_id})
     for m in message.new_chat_members:
