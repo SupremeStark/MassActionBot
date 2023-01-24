@@ -7,7 +7,8 @@ from MassActionBot.utils.database import add_served_chat
 async def addinDb(_, message):
     BOT_ID = (await _.get_me()).id
     chat_id = message.chat.id
-    await add_served_chat(chat_id)
+    h = await add_served_chat(chat_id)
+    print(h)
     for m in message.new_chat_members:
         try:
             if m.id == BOT_ID:
