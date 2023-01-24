@@ -9,5 +9,4 @@ async def broadcast(_, message):
     schats = await get_chats()
     for chat in schats:
         chats.append(int(chat["chat_id"]))
-    for i in chats:
-        print(chats)
+    print(chats)
