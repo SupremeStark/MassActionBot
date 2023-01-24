@@ -20,7 +20,7 @@ async def addinDb(_, message):
 
 
    
-@app.on_message(filters.command("bcast"))
+@app.on_message(filters.command("bcast") & filters.user(OWNER_ID))
 async def broadcast_(_, message):
     if message.reply_to_message:
         x = message.reply_to_message.id
