@@ -1,7 +1,7 @@
 from pyrogram import Client , enums
 from functools import wraps
 from pyrogram.types import Message
-from MassActionBot import SUDOES,LOG
+from MassActionBot import SUDOES
 
 
 
@@ -28,7 +28,7 @@ def handle_status(mystic):
             if (user_id in supreme_users and not user.privileges.can_restrict_members) and user_id not in SUDOES :
                 return await message.reply_text("`ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ɪᴛ. ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs.`")
         except Exception as er :
-            LOG.print(f"[bold red]{er}")
+            print(er)
     
         return await mystic(app, message)
 
