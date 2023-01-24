@@ -27,7 +27,8 @@ async def broadcast_(_, message):
     else:
         if len(message.command) < 2:
             await message.reply_text("ɢɪᴠᴇ ᴍᴇ ᴀ ᴛᴇxᴛ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ ɪᴛ.")
-        query = message.text.split(None,1)[1]
+        else:
+            query = message.text.split(None,1)[1]
     sent = 0
     chats = []
     schats = await get_chats()
