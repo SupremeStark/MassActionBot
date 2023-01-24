@@ -22,9 +22,7 @@ async def addinDb(_, message):
    
 @app.on_message(filters.command("bcast"))
 async def broadcast_(_, message):
-    if not message.reply_to_message:
-        pass
-    else:
+    if message.reply_to_message:
         x = message.reply_to_message.id
         y = message.chat.id
         sent = 0
@@ -32,17 +30,17 @@ async def broadcast_(_, message):
         schats = await get_chats()
         for chat in schats:
             chats.append(int(chat["chat_id"]))
-        print(chats,x)
         for i in chats:
             try:
-                m = await app.forward_messages(i, y, x)
-                await asyncio.sleep(0.3)
+                m = await app.forward_messages(i, y, x)                
                 sent += 1
+            except FloodWait as e:
+                await asyncio.sleep(e.value)
             except Exception:
                 pass
         await message.reply_text(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪɴ {sent} ᴄʜᴀᴛs.**")
         return
-    if len(message.command) < 2:
+    elif len(message.command) < 2:
         await message.reply_text(
             "**ᴇxᴀᴍᴩʟᴇ :**\n/broadcast [ᴍᴇssᴀɢᴇ] ᴏʀ [ʀᴇᴩʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ]"
         )
@@ -55,9 +53,10 @@ async def broadcast_(_, message):
         chats.append(int(chat["chat_id"]))
     for i in chats:
         try:
-            m = await app.send_message(i, text=text)
-            await asyncio.sleep(0.3)
+            m = await app.send_message(i, text=text)           
             sent += 1
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
         except Exception:
             pass
     await message.reply_text(f"**» sᴜᴄᴄᴇssғᴜʟʟʏ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪɴ {sent} ᴄʜᴀᴛs.**")
