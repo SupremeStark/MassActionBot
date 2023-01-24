@@ -17,10 +17,3 @@ async def addinDb(_, message):
         except Exception as idk:
             LOG.print(f"[bold red]{idk}")
 
-
-@app.on_message(filters.private)
-async def adduserinDb(_, message):
-    chat_id = message.from_user.id
-    check = await chatsdb.find_one({"chat_id" : chat_id})
-    if not check:
-        await chatsdb.insert_one({"chat_id" : chat_id})
