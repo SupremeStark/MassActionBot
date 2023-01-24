@@ -4,7 +4,7 @@ from MassActionBot import app ,LOG, OWNER_ID
 
 
 @app.on_message(filters.new_chat_members, group=2)
-async def addinDb(_, message: Message):
+async def addinDb(_, message):
     chat_id = message.chat.id
     BOT_ID = (await_.get_me()).id
     check = await chatsdb.find_one({"chat_id" : chat_id})
