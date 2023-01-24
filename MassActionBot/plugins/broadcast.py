@@ -5,4 +5,8 @@ from MassActionBot.utils.database import get_chats
 
 @app.on_message(filters.command("bcast"))
 async def broadcast(_, message):
-    print(await get_chats()["chat_id"])
+    chats = []
+    schats = await get_chats()
+    for chat in schats:
+        chats.append(int(chat["chat_id"]))
+    print(chats)
