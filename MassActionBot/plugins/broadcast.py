@@ -2,7 +2,7 @@ import asyncio
 from MassActionBot.utils.database import chatsdb,get_chats
 from pyrogram import filters
 from MassActionBot import app ,LOG, OWNER_ID
-
+from pyrogram.errors import FloodWait 
 
 @app.on_message(filters.new_chat_members, group=2)
 async def addinDb(_, message):
