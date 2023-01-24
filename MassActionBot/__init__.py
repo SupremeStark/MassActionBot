@@ -47,7 +47,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 #database
-mongo = AsyncIOMotorClient("mongodb+srv://KAKASHI:liyaxlambert*143@cluster0.yw44qr0.mongodb.net/?retryWrites=true&w=majority")
+mongo = AsyncIOMotorClient(MONGO_DB)
 db = mongo.AMSTARK
 
 
