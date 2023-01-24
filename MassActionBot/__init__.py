@@ -18,7 +18,8 @@ CLONE = Config.CLONE
 START_PIC = Config.START_PIC
 MONGO_DB = Config.MONGO_DB_URL
 SUDOES.append(OWNER_ID)
-
+if not START_PIC:
+    START_PIC = "https://graph.org/file/c1c19fee2ac7b458087f7.jpg"
 #rich
 LOG = Console()
 
@@ -70,7 +71,8 @@ MENTION = ""
 
 
 async def MassActionBot():
- #   os.system("clear")
+    global BOT_ID
+    os.system("clear")
     header = Table(show_header=True, header_style="bold yellow")
     header.add_column(START_TEXT)
     LOG.print(header)
