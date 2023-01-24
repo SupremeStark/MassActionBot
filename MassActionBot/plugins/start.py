@@ -1,12 +1,22 @@
-from MassActionBot import app,BOT_ID
+from MassActionBot import app,START_PIC
 from pyrogram import filters , enums 
-from MassActionBot.utils.database import chatsdb
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup 
+from MassActionBot.utils.data import *
 
+
+START_TEXT = """
+ʜᴇʏ {},
+ɪ'ᴍ  {}. ɪ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ᴄʟᴇᴀɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
+ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴋɴᴏᴡ ᴍʏ ᴀʙɪʟɪᴛɪᴇs.
+"""
 @app.on_message(filters.command("start"))
 async def _start(_, message): 
     chat_id = message.chat.id
-    print(chat_id,BOT_ID)    
-    check = await chatsdb.find_one({"chat_id" : chat_id}) 
-    if not check:
-        await chatsdb.insert_one({"chat_id" : chat_id})       
-    await message.reply_text("am started")
+    BOT_MENTION = (await _.get_me()).mention  
+    BOT_USERNAME = (await _.get_me()).username 
+    USER_MENTION = message.from_user.mention 
+    await message.reply_photo(
+        photo = START_PIC,
+        caption = START_TEXT.format(USER_MENTION,BOT_MENTION))
+           
+    
