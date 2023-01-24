@@ -1,14 +1,15 @@
 from MassActionBot import app
 from pyrogram import filters 
-from MassActionBot.utils.database import is_served_chat
+from MassActionBot.utils.database import is_served_chat, chatsdb
 
 
 @app.on_message(filters.new_chat_members,group=2)
 async def addinDb(_, message):
     BOT_ID = (await _.get_me()).id
     chat_id = message.chat.id
-    h = await is_served_chat(chat_id)
-    print(h)
+    check = await is_served_chat(chat_id)
+    if check is False:
+        await chatsdb.insert_one({"chat_id" : chat_id})
     for m in message.new_chat_members:
         try:
             if m.id == BOT_ID:
