@@ -36,8 +36,11 @@ async def broadcast_(_, message):
     for chat in schats:
         chats.append(int(chat["chat_id"]))
     for a in chats:
-        try: 
-            await app.forward_message(a,y,x) if message.reply_to_message else await app.send_message(a, query)
+        try:
+            if message.reply_to_message: 
+                await app.forward_message(a,y,x)
+            else:   
+                await app.send_message(a, query)
             sent += 1
         except FloodWait as e:
             flood_time = int(e.value)
