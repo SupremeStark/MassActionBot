@@ -10,20 +10,6 @@ async def is_served_chat(chat_id : int) -> bool:
         return True
     return False
 
-
-async def add_served_chat(chat_id : Final[int]) :
-    check_served = await is_served_chat(chat_id)
-    if check_served:
-        return
-    return await chatsdb.insert_one({"chat_id" : chat_id})
-
-async def rm_served_chat(chat_id : Final[int]):
-    check_served = await is_served_chat(chat_id)
-    if not check_served:
-        return
-    return await chatsdb.delete_one({"chat_id" : chat_id})
-
-
 async def get_chats() -> list:
     chats = chatsdb.find({"chat_id" : {"$lt" : 0}})
     if not chats:
