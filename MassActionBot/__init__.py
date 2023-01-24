@@ -56,8 +56,7 @@ app = Client(
     "SupremeStark",
     api_id = API_ID,
     api_hash = API_HASH,
-    bot_token = TOKEN ,
-    plugins= dict(root="MassActionBot/plugins"))
+    bot_token = TOKEN )
     
 
 
@@ -82,8 +81,7 @@ async def MassActionBot():
     await asyncio.sleep(1)
     LOG.print(f"[bold cyan]ʙᴏᴛ ɪᴅ : {BOT_ID}\nʙᴏᴛ ɴᴀᴍᴇ : {BOT_NAME}\nʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ : {BOT_USERNAME}")
     await asyncio.sleep(0.5)
-    LOG.print("[bold yellow]ɴᴏᴡ ᴀᴍ ʀᴇᴀᴅʏ ᴛᴏ ғɪɢʜᴛ ʙᴏss..")
-    await idle() 
+    
 
 
 loop = asyncio.get_event_loop()
