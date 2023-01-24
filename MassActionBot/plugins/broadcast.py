@@ -15,7 +15,7 @@ async def addinDb(_, message: Message):
             if m.id == BOT_ID:
                 await message.reply_text(f"ᴛʜᴀɴᴋs ғᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ ɪɴ {message.chat.title}.ғʀᴏᴍ ɴᴏᴡ ɪ ᴡɪʟʟ ᴋᴇᴇᴘ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴄʟᴇᴀɴ.")                                                   
         except Exception as er:
-            LOG.print(f"[bold red]{er})  
+            LOG.print(f"[bold red]{er}")  
 
 
    
