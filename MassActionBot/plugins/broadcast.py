@@ -1,3 +1,4 @@
+import asyncio
 from MassActionBot.utils.database import chatsdb,get_chats
 from pyrogram import filters
 from MassActionBot import app ,LOG, OWNER_ID
@@ -34,6 +35,22 @@ async def broadcast_(_, message):
     schats = await get_chats()
     for chat in schats:
         chats.append(int(chat["chat_id"]))
-    print(chats)
+    for a in chats:
+        try: 
+            await app.forward_message(a,y,x) if message.reply_to_message else await app.send_message(a, query)
+            sent += 1
+        except FloodWait as e:
+            flood_time = int(e.value)
+            if flood_time > 200:
+                continue
+            await asyncio.sleep(flood_time)
+        except Exception:
+            continue
+    try:
+        await message.reply_text(
+            f"**Broadcasted Message In {sent} Chats.**"
+        )
+    except:
+        pass
 
             
