@@ -1,7 +1,7 @@
 from pyrogram import Client , enums
 from functools import wraps
 from pyrogram.types import Message
-from MassActionBot import SUDOES,LOG_ID
+from MassActionBot import SUDOES,LOG
 
 
 
