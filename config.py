@@ -4,7 +4,7 @@ class Config:
     BOT_TOKEN = "5589920583:AAEa8QFQbVS4njKYQ9tSh2RW1P0w1xvYrAQ"
     BAN_PROTECTED = [5285561060]
     OWNER_ID = 5505555398
-    #CLONE = True
+    CLONE = True
     START_PIC = ""
     MONGO_DB_URL = "mongodb+srv://KAKASHI:liyaxlambert*143@cluster0.yw44qr0.mongodb.net/?retryWrites=true&w=majority"
     
