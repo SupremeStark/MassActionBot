@@ -4,12 +4,6 @@ from typing import Final
 chatsdb = db.chats
 
 
-async def is_served_chat(chat_id : int) -> bool:
-    check = chatsdb.find_one({"chat_id" : chat_id})
-    if not check:
-        return True
-    return False
-
 async def get_chats() -> list:
     chats = chatsdb.find({"chat_id": {"$lt": 0}})
     if not chats:
