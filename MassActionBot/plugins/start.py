@@ -15,8 +15,10 @@ async def _start(_, message):
     BOT_MENTION = (await _.get_me()).mention  
     BOT_USERNAME = (await _.get_me()).username 
     USER_MENTION = message.from_user.mention 
+    buttons = InlineKeyboardMarkup([[InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕",url=f"https://t.me/{BOT_USERNAME}?startgroup=true)]])
+    
     await message.reply_photo(
         photo = START_PIC,
-        caption = START_TEXT.format(USER_MENTION,BOT_MENTION))
+        caption = START_TEXT.format(USER_MENTION,BOT_MENTION),reply_markup=buttons)
            
     
