@@ -24,7 +24,6 @@ if not START_PIC:
 LOG = Console()
 
 #time
-StartTime = time.time()
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -51,7 +50,7 @@ def get_readable_time(seconds: int) -> str:
 #database
 mongo = AsyncIOMotorClient("mongodb+srv://KAKASHI:liyaxlambert*143@cluster0.yw44qr0.mongodb.net/?retryWrites=true&w=majority")
 db = mongo.AMSTARK
-print(db)
+
 
 #client
 app = Client(
@@ -62,16 +61,9 @@ app = Client(
     plugins= dict(root="MassActionBot/plugins"))
     
 
-#bot info
-BOT_ID = 0
-BOT_NAME = ""
-BOT_USERNAME = ""
-MENTION = ""
-
 
 
 async def MassActionBot():
-    global BOT_ID
     os.system("clear")
     header = Table(show_header=True, header_style="bold yellow")
     header.add_column(START_TEXT)
