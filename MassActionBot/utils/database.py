@@ -6,7 +6,7 @@ chatsdb = db.chats
 
 async def is_served_chat(chat_id : int) -> bool:
     check = chatsdb.find_one({"chat_id" : chat_id})
-    if check:
+    if not check:
         return True
     return False
 
