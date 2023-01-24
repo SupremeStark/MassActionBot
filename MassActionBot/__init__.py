@@ -68,7 +68,7 @@ async def MassActionBot():
     header.add_column(START_TEXT)
     LOG.print(header)
     LOG.print("[bold yellow]ɢᴇᴛᴛɪɴɢ ɪɴғᴏ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ.....")
-    await app.start()
+    await app.run()
     bot = await app.get_me()
     BOT_ID = bot.id
     BOT_USERNAME = bot.username
@@ -83,7 +83,7 @@ async def MassActionBot():
     LOG.print(f"[bold cyan]ʙᴏᴛ ɪᴅ : {BOT_ID}\nʙᴏᴛ ɴᴀᴍᴇ : {BOT_NAME}\nʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ : {BOT_USERNAME}")
     await asyncio.sleep(0.5)
     LOG.print("[bold yellow]ɴᴏᴡ ᴀᴍ ʀᴇᴀᴅʏ ᴛᴏ ғɪɢʜᴛ ʙᴏss..")
-    await idle() 
+  #  await idle() 
 
 
 loop = asyncio.get_event_loop()
