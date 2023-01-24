@@ -22,38 +22,42 @@ async def addinDb(_, message):
    
 @app.on_message(filters.command("bcast"))
 async def broadcast_(_, message):
-    if message.reply_to_message:
+    if not message.reply_to_message:
+        pass
+    else:
         x = message.reply_to_message.id
         y = message.chat.id
-    else:
-        if len(message.command) < 2:
-            await message.reply_text("ɢɪᴠᴇ ᴍᴇ ᴀ ᴛᴇxᴛ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ ɪᴛ.")
-        else:
-            query = message.text.split(None,1)[1]
+        sent = 0
+        chats = []
+        schats = await get_chats()
+        for chat in schats:
+            chats.append(int(chat["chat_id"]))
+        print(chats,x)
+        for i in chats:
+            try:
+                m = await app.forward_messages(i, y, x)
+                await asyncio.sleep(0.3)
+                sent += 1
+            except Exception:
+                pass
+        await message.reply_text(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪɴ {sent} ᴄʜᴀᴛs.**")
+        return
+    if len(message.command) < 2:
+        await message.reply_text(
+            "**ᴇxᴀᴍᴩʟᴇ :**\n/broadcast [ᴍᴇssᴀɢᴇ] ᴏʀ [ʀᴇᴩʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ]"
+        )
+        return
+    text = message.text.split(None, 1)[1]
     sent = 0
     chats = []
     schats = await get_chats()
     for chat in schats:
         chats.append(int(chat["chat_id"]))
-    for a in chats:
+    for i in chats:
         try:
-            if message.reply_to_message: 
-                await app.forward_message(a,y,x)
-            else:   
-                await app.send_message(a, query)
+            m = await app.send_message(i, text=text)
+            await asyncio.sleep(0.3)
             sent += 1
-        except FloodWait as e:
-            flood_time = int(e.value)
-            if flood_time > 200:
-                continue
-            await asyncio.sleep(flood_time)
         except Exception:
-            continue
-    try:
-        await message.reply_text(
-            f"**Broadcasted Message In {sent} Chats.**"
-        )
-    except:
-        pass
-
-            
+            pass
+    await message.reply_text(f"**» sᴜᴄᴄᴇssғᴜʟʟʏ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪɴ {sent} ᴄʜᴀᴛs.**")
