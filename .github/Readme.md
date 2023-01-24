@@ -21,7 +21,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <p align="center">
-  <img src="https://telegra.ph/file/03264297589e442200052.jpg">
+  <img src="https://graph.org/file/c1c19fee2ac7b458087f7.jpg">
 </p>
 
 
