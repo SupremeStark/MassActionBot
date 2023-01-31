@@ -5,8 +5,7 @@ from config import Config
 from pyrogram import Client,idle
 from rich.console import Console
 from rich.table import Table
-from motor.motor_asyncio import AsyncIOMotorClient
-from MassActionBot.utils.data import LOG_MSG as START_TEXT
+from MassActionBot.utils.data import LOG_MSG
 
 #getting variables
 API_ID = Config.API_ID
