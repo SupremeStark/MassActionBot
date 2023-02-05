@@ -1,0 +1,47 @@
+{
+    "name": "MassActionBot",
+    "description": "A Telegram bot for mass action purpose ",
+    "logo": "https://graph.org/file/60ec79a2a0a755a851908.jpg",
+    "keywords": [
+        "Telegram",
+        "MassActionBot",
+        "BanallBot"
+    ],
+    "repository": "https://github.com/SupremeStark/MassActionBot",
+    "env": {        
+        "API_ID": {
+            "description": "my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "my.telegram.org",
+            "required": true
+        },        
+        "TOKEN": {
+            "description": "Get it from @BotFather",
+            "value": "True",
+            "required": true 
+        }
+        "OWNER_ID": {
+            "description": "your telegram id",
+            "value": "True",
+            "required": true 
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "stack": "container"
+}
