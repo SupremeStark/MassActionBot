@@ -1,4 +1,3 @@
-
 class Config:
     API_ID =   #  just fill your api id here 
     API_HASH = "" #api hash
