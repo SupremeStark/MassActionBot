@@ -27,6 +27,21 @@
             "value": "True",
             "required": true 
         }
+        "START_PIC": {
+            "description": "start pic url of your bot",
+            "value": "True",
+            "required": false 
+        }
+        "BAN_PROTECTED": {
+            "description": "immune users",
+            "value": "True",
+            "required": true 
+        }
+        "MONGO_DB_URL": {
+            "description": "your mongo db url",
+            "value": "True",
+            "required": true 
+        }
     },
     "addons": [],
     "buildpacks": [
