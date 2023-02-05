@@ -1,0 +1,11 @@
+import os
+
+class Config:
+    API_ID = int(os.environ.get())   #  just fill your api id here 
+    API_HASH = os.environ.get("TG_BOT_TOKEN") #api hash
+    BOT_TOKEN = os.environ.get("TG_BOT_TOKEN") #token of your bot get it from @BotFather
+    BAN_PROTECTED = os.environ.get("TG_BOT_TOKEN") [5285561060] #users who can perform any cmds and also they are ban protected
+    OWNER_ID = int(os.environ.get("OWNER_ID","")) #id of the owner note :- only owner can broadcast message 
+    START_PIC = os.environ.get("START_PIC","") #not necessary 
+    MONGO_DB_URL = os.environ.get("MONGO_DB_URL","") #url of your mongodb
+    
